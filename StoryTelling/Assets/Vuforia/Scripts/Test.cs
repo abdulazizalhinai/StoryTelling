@@ -11,17 +11,20 @@ public class Test : DefaultTrackableEventHandler
     Transform mytransform;
     private Vector3 mOffset;
     private float mZCoord;
+    Vector3 OrginalPostion;
     // Update is called once per frame
     protected override void Start()
     {
         base.Start();
-      //  cube = GetComponent<Transform>();
+       
+        OrginalPostion= transform.position;
+        //  cube = GetComponent<Transform>();
         //rb = GetComponent<Rigidbody>();
     }
     void Update()
     {
+
         
-       
     }
     protected override void OnTrackingFound()
     {
@@ -80,8 +83,21 @@ public class Test : DefaultTrackableEventHandler
 
     {
 
+
         transform.position = GetMouseAsWorldPoint() + mOffset;
 
+    }
+    private void OnMouseUp()
+    {
+        if(transform.position.x>= -0.4f && transform.position.x <=0)
+        {
+            transform.position = OrginalPostion;
+            print("no");
+        }
+        else
+        {
+            print("ok");
+        }
     }
 
 }
