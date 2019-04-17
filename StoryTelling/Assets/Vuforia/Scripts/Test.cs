@@ -5,36 +5,43 @@ using UnityEngine.EventSystems;
 
 public class Test : DefaultTrackableEventHandler
 {
-    bool move=false;
-   //public Transform cube;
-  //public Rigidbody rb;
-    Transform mytransform;
+    bool move = false;
+    //public Transform cube;
+    //public Rigidbody rb;
+    //Transform mytransform;
     private Vector3 mOffset;
     private float mZCoord;
     Vector3 OrginalPostion;
+
+    public string Box;
     // Update is called once per frame
     protected override void Start()
     {
         base.Start();
-       
-        OrginalPostion= transform.position;
+
+        OrginalPostion = transform.position;
         //  cube = GetComponent<Transform>();
+        print(OrginalPostion);
         //rb = GetComponent<Rigidbody>();
     }
     void Update()
     {
+        //if (transform.position.y < 0.1f)
+        //{
+        //    transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
 
-        
+        //}
+
     }
     protected override void OnTrackingFound()
     {
         base.OnTrackingFound();
-       // print("aaaa");
+        // print("aaaa");
         move = true;
     }
     protected override void OnTrackingLost()
     {
-       // print("bbbb");
+        // print("bbbb");
         base.OnTrackingLost();
     }
     void OnMouseDown()
@@ -42,7 +49,6 @@ public class Test : DefaultTrackableEventHandler
     {
 
         mZCoord = Camera.main.WorldToScreenPoint(
-
             gameObject.transform.position).z;
 
 
@@ -50,6 +56,7 @@ public class Test : DefaultTrackableEventHandler
         // Store offset = gameobject world pos - mouse world pos
 
         mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
+        //mOffset.y = gameObject.transform.position.y + 1.5f;
 
     }
 
@@ -60,13 +67,9 @@ public class Test : DefaultTrackableEventHandler
     {
 
         // Pixel coordinates of mouse (x,y)
-
         Vector3 mousePoint = Input.mousePosition;
 
-
-
         // z coordinate of game object on screen
-
         mousePoint.z = mZCoord;
 
 
@@ -82,21 +85,40 @@ public class Test : DefaultTrackableEventHandler
     void OnMouseDrag()
 
     {
+        RaycastHit hit;
 
+        Physics.Raycast(Camera.main.transform.position, (GetMouseAsWorldPoint() - Camera.main.transform.position).normalized, out hit);
 
-        transform.position = GetMouseAsWorldPoint() + mOffset;
+        Vector3 point = hit.point;
+        point.y = 1.5f;
+
+        transform.position = point;
 
     }
-    private void OnMouseUp()
+    //private void OnMouseUp()
+    //{
+    //    if( transform.position.z >=0)
+    //    {
+    //        transform.position = new Vector3(-0.3106f, 0.0255f, -0.458f);
+    //        print("yes");
+    //    }
+    //    else
+    //    {
+    //        transform.position = OrginalPostion;
+    //        print("no");
+    //    }
+    //}
+
+    private void OnTriggerEnter(Collider other)
     {
-        if(transform.position.x>= -0.4f && transform.position.x <=0)
+        if (Box == other.tag)
         {
-            transform.position = OrginalPostion;
-            print("no");
+            print("ok");
         }
         else
         {
-            print("ok");
+            print("no");
+            transform.position = OrginalPostion;
         }
     }
 
