@@ -19,7 +19,8 @@ public class Test : DefaultTrackableEventHandler
     protected override void Start()
     {
         base.Start();
-
+        PlayerPrefs.SetInt("red", 0);
+        PlayerPrefs.SetInt("green", 0);
         OrginalPostion = transform.position;
         //  cube = GetComponent<Transform>();
         print(OrginalPostion);
@@ -85,13 +86,18 @@ public class Test : DefaultTrackableEventHandler
             print("ok");
             if(Box=="RedBox")
             {
-                red++;
-                print(red);
+                PlayerPrefs.SetInt("red", PlayerPrefs.GetInt("red")+1);
+               
             }
             else 
             {
-                green++;
-                print(green);
+                PlayerPrefs.SetInt("green", PlayerPrefs.GetInt("green") + 1);
+               
+            }
+            if (PlayerPrefs.GetInt("red") == 3 && PlayerPrefs.GetInt("green") == 3)
+            {
+               
+                print("Welldone!");
             }
 
         }
@@ -100,10 +106,7 @@ public class Test : DefaultTrackableEventHandler
             print("no");
             transform.position = OrginalPostion;
         }
-        if(red==3 && green==3)
-        {
-            print("WellDone!");
-        }
+       
     }
 
 }
