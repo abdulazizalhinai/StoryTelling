@@ -86,11 +86,13 @@ public class Test : DefaultTrackableEventHandler
             print("ok");
             if(Box=="RedBox")
             {
+                Destroy(this.gameObject);
                 PlayerPrefs.SetInt("red", PlayerPrefs.GetInt("red")+1);
                
             }
             else 
             {
+                Destroy(this.gameObject);
                 PlayerPrefs.SetInt("green", PlayerPrefs.GetInt("green") + 1);
                
             }
