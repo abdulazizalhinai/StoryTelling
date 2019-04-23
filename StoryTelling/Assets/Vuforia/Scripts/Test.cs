@@ -12,6 +12,7 @@ public class Test : DefaultTrackableEventHandler
     private Vector3 mOffset;
     private float mZCoord;
     Vector3 OrginalPostion;
+    int red = 0, green = 0;
 
     public string Box;
     // Update is called once per frame
@@ -24,26 +25,7 @@ public class Test : DefaultTrackableEventHandler
         print(OrginalPostion);
         //rb = GetComponent<Rigidbody>();
     }
-    void Update()
-    {
-        //if (transform.position.y < 0.1f)
-        //{
-        //    transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
-
-        //}
-
-    }
-    protected override void OnTrackingFound()
-    {
-        base.OnTrackingFound();
-        // print("aaaa");
-        move = true;
-    }
-    protected override void OnTrackingLost()
-    {
-        // print("bbbb");
-        base.OnTrackingLost();
-    }
+   
     void OnMouseDown()
 
     {
@@ -87,38 +69,40 @@ public class Test : DefaultTrackableEventHandler
     {
         RaycastHit hit;
 
-        Physics.Raycast(Camera.main.transform.position, (GetMouseAsWorldPoint() - Camera.main.transform.position).normalized, out hit);
+        Physics.Raycast(Camera.main.transform.position, (GetMouseAsWorldPoint() - Camera.main.transform.position).normalized, out hit, 100, 1 << 9);
 
         Vector3 point = hit.point;
-        point.y = 1.5f;
+        //point.y = 0.5f;
 
-        transform.position = point;
+        transform.position = point + hit.normal * 0.8f;
 
     }
-    //private void OnMouseUp()
-    //{
-    //    if( transform.position.z >=0)
-    //    {
-    //        transform.position = new Vector3(-0.3106f, 0.0255f, -0.458f);
-    //        print("yes");
-    //    }
-    //    else
-    //    {
-    //        transform.position = OrginalPostion;
-    //        print("no");
-    //    }
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
         if (Box == other.tag)
         {
             print("ok");
+            if(Box=="RedBox")
+            {
+                red++;
+                print(red);
+            }
+            else 
+            {
+                green++;
+                print(green);
+            }
+
         }
         else
         {
             print("no");
             transform.position = OrginalPostion;
+        }
+        if(red==3 && green==3)
+        {
+            print("WellDone!");
         }
     }
 
