@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,17 +9,18 @@ public enum aState
 {
     Idle,
     walking,
+    Wave,
 }
 
-public class animation : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
-    float counter;
+    internal float counter;
     public aState currentState;
     Animator yarboa;
     float moveSpeed = 1;
     public Transform[] WayPoints;
-    private int index = 0;
-    Rigidbody RB;
+    internal int index = 0;
+    internal Rigidbody RB;
     public float Speed;
 
     PartAnimation[] AllParts;
@@ -26,31 +28,23 @@ public class animation : MonoBehaviour
     public Text Debug;
 
     float currentAngle;
-    //private void OnEnable()
-    //{
-    //    switch (currentState)
-    //    {
-    //        case aState.Idle:
-    //            yarboa.SetTrigger("Wave");
-    //            break;
-    //        case aState.walking:
-    //            yarboa.SetTrigger("Walk");
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
+
+    public Action walkFinished;
+    public Action waveFinished;
 
     void Start()
     {
-        counter = 3f;
+        Init();
+    }
+
+    public void Init()
+    {
         yarboa = GetComponent<Animator>();
-
         RB = GetComponent<Rigidbody>();
-
         AllParts = GetComponentsInChildren<PartAnimation>();
 
-        PlayAnim(AllAnimations.Wave);
+        walkFinished = FinishedWalking;
+        waveFinished = FinishedWave;
     }
 
     void Update()
@@ -59,14 +53,7 @@ public class animation : MonoBehaviour
         switch (currentState)
         {
             case aState.Idle:
-                counter -= Time.deltaTime;
-
-                if (counter < 0)
-                {
-                    currentState = aState.walking;
-
-                    PlayAnim(AllAnimations.Walk);
-                }
+                Idle();
                 break;
             case aState.walking:
 
@@ -76,7 +63,7 @@ public class animation : MonoBehaviour
                 transform.Rotate(0, Mathf.Clamp(wrapAngle(angle - transform.localEulerAngles.y), Time.deltaTime * -120, Time.deltaTime * 120), 0, Space.Self);
 
                 RB.velocity = Speed * transform.forward;
-                Debug.text = (index + " " + Vector3.Distance(transform.position, WayPoints[index].position));
+                //Debug.text = (index + " " + Vector3.Distance(transform.position, WayPoints[index].position));
                 if (Vector3.Distance(transform.position, WayPoints[index].position) < 1.5f)
                 {
                     print(index);
@@ -85,19 +72,47 @@ public class animation : MonoBehaviour
                     if (WayPoints.Length == index)
                     {
                         index = 0;
+                        walkFinished.Invoke();
                         currentState = aState.Idle;
-                        RB.velocity = Vector3.zero;
-
-                        counter = 3;
-
-                        PlayAnim(AllAnimations.Wave);
                     }
                 }
 
                 break;
+            case aState.Wave:
+
+                counter -= Time.deltaTime;
+
+                if (counter < 0)
+                {
+                    waveFinished.Invoke();
+                }
+                break;
             default:
                 break;
         }
+    }
+
+    public void Walk()
+    {
+        currentState = aState.walking;
+        PlayAnim(AllAnimations.Walk);
+    }
+
+    public void Wave()
+    {
+        RB.velocity = Vector3.zero;
+        currentState = aState.Wave;
+        PlayAnim(AllAnimations.Wave);
+        counter = 3;
+    }
+
+    public void Idle()
+    {
+        print("idle");
+        currentState = aState.Idle;
+        RB.velocity = Vector3.zero;
+        PlayAnim(AllAnimations.Idle);
+        counter = 3;
     }
 
     float wrapAngle(float angle)
@@ -110,11 +125,21 @@ public class animation : MonoBehaviour
         return angle;
     }
 
-    private void PlayAnim(AllAnimations anim)
+    public void PlayAnim(AllAnimations anim)
     {
         foreach (var item in AllParts)
         {
             item.CurrentAnimation = anim;
         }
+    }
+
+    public virtual void FinishedWalking()
+    {
+
+    }
+
+    public virtual void FinishedWave()
+    {
+
     }
 }
