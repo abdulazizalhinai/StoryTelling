@@ -9,18 +9,19 @@ public class AnimationFirst : PlayerManager
     {
         Init();
         Wave();
+        Walk();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+   
     public override void FinishedWalking()
     {
-        Wave();
+        Walk();
     }
+    //public override void FinishedWalking()
+    //{
+    //    Wave();
+    //}
 
     
 }
