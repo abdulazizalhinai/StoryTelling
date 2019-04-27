@@ -108,7 +108,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Idle()
     {
-        print("idle");
+        
         currentState = aState.Idle;
         RB.velocity = Vector3.zero;
         PlayAnim(AllAnimations.Idle);
