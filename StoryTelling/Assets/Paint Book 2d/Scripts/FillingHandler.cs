@@ -3,13 +3,15 @@ using System.Collections;
 
 public class FillingHandler : MonoBehaviour
 {
-		public AudioSource audioSource;
+    public GameObject gameObject1;
+    public AudioSource audioSource;
 		public AudioClip fillAudioClip;
 		public Brush brush;
 		private Vector3 Postion;
 
 		void Start ()
 		{
+      
 				if (audioSource == null) {
 						audioSource = Camera.main.GetComponent<AudioSource> ();
 				}
@@ -18,6 +20,8 @@ public class FillingHandler : MonoBehaviour
 		
 		void Update ()
 		{
+        if (PlayerPrefs.GetInt("active")==1)
+        gameObject1.SetActive(true);
 				Postion = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 				Postion.z = -5;
 				if (Input.GetMouseButtonDown (0)) { 

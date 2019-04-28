@@ -14,6 +14,8 @@ public class Test : DefaultTrackableEventHandler
     Vector3 OrginalPostion;
     int red = 0, green = 0;
 
+    bool done = false;
+
     public string Box;
 
     ParticleSystem effects;
@@ -23,12 +25,12 @@ public class Test : DefaultTrackableEventHandler
         base.Start();
         PlayerPrefs.SetInt("red", 0);
         PlayerPrefs.SetInt("green", 0);
-        OrginalPostion = transform.position;
+        OrginalPostion = transform.localPosition;
         //  cube = GetComponent<Transform>();
         print(OrginalPostion);
         //rb = GetComponent<Rigidbody>();
     }
-   
+
     void OnMouseDown()
 
     {
@@ -77,47 +79,49 @@ public class Test : DefaultTrackableEventHandler
         Vector3 point = hit.point;
         //point.y = 0.5f;
 
-        transform.position = point + hit.normal * 1.5f;
+        transform.position = point + hit.normal * 5f;
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Box == other.tag)
+        if (Box == other.tag && done == false)
         {
+
+            done = true;
             print("ok");
-            if(Box=="RedBox")
+            if (Box == "RedBox")
             {
-                Destroy(gameObject);
-                PlayerPrefs.SetInt("red", PlayerPrefs.GetInt("red")+1);
-               
+                //Destroy(gameObject);
+                PlayerPrefs.SetInt("red", PlayerPrefs.GetInt("red") + 1);
+
             }
-            else 
+            else if (Box == "GreenBox")
             {
-                Destroy(gameObject);
+                // Destroy(gameObject);
                 PlayerPrefs.SetInt("green", PlayerPrefs.GetInt("green") + 1);
-               
+
             }
             if (PlayerPrefs.GetInt("red") == 3 && PlayerPrefs.GetInt("green") == 3)
             {
-               
+
                 print("Welldone!");
 
                 GameManager.Instance.GameWon();
 
             }
             //correct answer
-            
 
-        }
-        else
-        {
-            print("no");
-            transform.position = OrginalPostion;
 
-            //wrong answer
+
+            else
+            {
+                print("no");
+                transform.localPosition = OrginalPostion;
+
+                //wrong answer
+            }
         }
-       
     }
 
 }

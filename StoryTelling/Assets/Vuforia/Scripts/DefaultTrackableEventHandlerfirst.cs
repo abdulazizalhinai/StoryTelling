@@ -1,4 +1,4 @@
-/*==============================================================================
+﻿/*==============================================================================
 Copyright (c) 2017 PTC Inc. All Rights Reserved.
 
 Copyright (c) 2010-2014 Qualcomm Connected Experiences, Inc.
@@ -15,9 +15,8 @@ using UnityEngine.SceneManagement;
 /// Changes made to this file could be overwritten when upgrading the Vuforia version.
 /// When implementing custom event handler behavior, consider inheriting from this class instead.
 /// </summary>
-public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
+public class DefaultTrackableEventHandlerfirst : MonoBehaviour, ITrackableEventHandler
 {
-    GameObject GameObject;
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
@@ -30,7 +29,6 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void Start()
     {
-        PlayerPrefs.SetInt("active", 0);
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
             mTrackableBehaviour.RegisterTrackableEventHandler(this);
@@ -82,10 +80,10 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     #endregion // PUBLIC_METHODS
 
     #region PROTECTED_METHODS
-   
+
     protected virtual void OnTrackingFound()
     {
-
+        
         //var rendererComponents = GetComponentsInChildren<Renderer>(true);
         //var colliderComponents = GetComponentsInChildren<Collider>(true);
         //var canvasComponents = GetComponentsInChildren<Canvas>(true);
@@ -101,14 +99,11 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         //// Enable canvas':
         //foreach (var component in canvasComponents)
         //    component.enabled = true;
-        gameObject.SetActive(true);
+
         foreach (Transform item in transform)
         {
-            print("aaaa");
             item.gameObject.SetActive(true);
         }
-        PlayerPrefs.SetInt("active", 1);
-        SceneManager.LoadScene("game");
 
         //var rendererComponents = GetComponentsInChildren<Renderer>(true);
         //var colliderComponents = GetComponentsInChildren<Collider>(true);
