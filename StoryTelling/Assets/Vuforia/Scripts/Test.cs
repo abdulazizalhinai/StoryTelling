@@ -13,28 +13,37 @@ public class Test : DefaultTrackableEventHandler
     private float mZCoord;
     Vector3 OrginalPostion;
     int red = 0, green = 0;
-
+    Vector3 OrginalScale;
     bool done = false;
-
+    
     public string Box;
+
+    public GameObject Rim;
+    public GameObject Rim2;
+    public GameObject Rim3;
 
     ParticleSystem effects;
     // Update is called once per frame
     protected override void Start()
     {
+        
         base.Start();
         PlayerPrefs.SetInt("red", 0);
         PlayerPrefs.SetInt("green", 0);
         OrginalPostion = transform.localPosition;
+        OrginalScale = transform.localScale;
         //  cube = GetComponent<Transform>();
         print(OrginalPostion);
         //rb = GetComponent<Rigidbody>();
     }
-
+    private void OnMouseUp()
+    {
+        transform.localScale = OrginalScale;
+    }
     void OnMouseDown()
 
     {
-
+        transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
         mZCoord = Camera.main.WorldToScreenPoint(
             gameObject.transform.position).z;
 
@@ -52,7 +61,7 @@ public class Test : DefaultTrackableEventHandler
     private Vector3 GetMouseAsWorldPoint()
 
     {
-
+        
         // Pixel coordinates of mouse (x,y)
         Vector3 mousePoint = Input.mousePosition;
 
@@ -67,6 +76,19 @@ public class Test : DefaultTrackableEventHandler
 
     }
 
+    private void OnMouseEnter()
+    {
+        Rim.SetActive(true);
+        Rim3.SetActive(true);
+        Rim2.SetActive(true);
+    }
+
+    private void OnMouseExit()
+    {
+        Rim.SetActive(false);
+        Rim2.SetActive(false);
+        Rim3.SetActive(false);
+    }
 
 
     void OnMouseDrag()
@@ -79,24 +101,25 @@ public class Test : DefaultTrackableEventHandler
         Vector3 point = hit.point;
         //point.y = 0.5f;
 
-        transform.position = point + hit.normal * 5f;
+        transform.position = point + hit.normal * 5.9f;
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Box == other.tag && done == false)
+        if (Box == other.tag )
         {
 
             done = true;
             print("ok");
             if (Box == "RedBox")
             {
+                
                 //Destroy(gameObject);
                 PlayerPrefs.SetInt("red", PlayerPrefs.GetInt("red") + 1);
 
             }
-            else if (Box == "GreenBox")
+            else //if (Box == "GreenBox")
             {
                 // Destroy(gameObject);
                 PlayerPrefs.SetInt("green", PlayerPrefs.GetInt("green") + 1);
@@ -113,15 +136,15 @@ public class Test : DefaultTrackableEventHandler
             //correct answer
 
 
-
-            else
-            {
-                print("no");
-                transform.localPosition = OrginalPostion;
-
-                //wrong answer
-            }
         }
+        else
+        {
+            print("no");
+            transform.localPosition = OrginalPostion;
+
+            //wrong answer
+        }
+        
     }
 
 }
