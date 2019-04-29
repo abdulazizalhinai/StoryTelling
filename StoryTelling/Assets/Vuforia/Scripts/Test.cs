@@ -6,9 +6,6 @@ using UnityEngine.EventSystems;
 public class Test : DefaultTrackableEventHandler
 {
     bool move = false;
-    //public Transform cube;
-    //public Rigidbody rb;
-    //Transform mytransform;
     private Vector3 mOffset;
     private float mZCoord;
     Vector3 OrginalPostion;
@@ -16,15 +13,14 @@ public class Test : DefaultTrackableEventHandler
 
     public string Box;
     // Update is called once per frame
+
     protected override void Start()
     {
         base.Start();
         PlayerPrefs.SetInt("red", 0);
         PlayerPrefs.SetInt("green", 0);
         OrginalPostion = transform.position;
-        //  cube = GetComponent<Transform>();
         print(OrginalPostion);
-        //rb = GetComponent<Rigidbody>();
     }
    
     void OnMouseDown()
@@ -34,13 +30,8 @@ public class Test : DefaultTrackableEventHandler
         mZCoord = Camera.main.WorldToScreenPoint(
             gameObject.transform.position).z;
 
-
-
-        // Store offset = gameobject world pos - mouse world pos
-
         mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
-        //mOffset.y = gameObject.transform.position.y + 1.5f;
-
+     
     }
 
 
