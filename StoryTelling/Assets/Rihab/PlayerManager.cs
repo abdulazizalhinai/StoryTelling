@@ -22,21 +22,15 @@ public class PlayerManager : MonoBehaviour
     internal int index = 0;
     internal Rigidbody RB;
     public float Speed;
-
     PartAnimation[] AllParts;
-
     public Text Debug;
-
     float currentAngle;
-
     public Action walkFinished;
     public Action waveFinished;
-
-    void Start()
+    protected virtual void Start()
     {
         Init();
     }
-
     public void Init()
     {
         yarboa = GetComponent<Animator>();
@@ -47,24 +41,22 @@ public class PlayerManager : MonoBehaviour
         waveFinished = FinishedWave;
     }
 
-    void Update()
+    protected virtual void Update()
     {
-        
+
         switch (currentState)
         {
             case aState.Idle:
-                Idle();
+
                 break;
             case aState.walking:
-
                 Vector3 wayPointDirection = (WayPoints[index].localPosition - transform.localPosition).normalized;
-                
                 float angle = Mathf.Atan2(wayPointDirection.x, wayPointDirection.z) * Mathf.Rad2Deg;
                 transform.Rotate(0, Mathf.Clamp(wrapAngle(angle - transform.localEulerAngles.y), Time.deltaTime * -120, Time.deltaTime * 120), 0, Space.Self);
 
                 RB.velocity = Speed * transform.forward;
-                //Debug.text = (index + " " + Vector3.Distance(transform.position, WayPoints[index].position));
-                if (Vector3.Distance(transform.position, WayPoints[index].position) < 1.5f)
+
+                if (Vector3.Distance(transform.position, WayPoints[index].position) < 1f)
                 {
                     print(index);
                     index++;
@@ -73,7 +65,7 @@ public class PlayerManager : MonoBehaviour
                     {
                         index = 0;
                         walkFinished.Invoke();
-                        currentState = aState.Idle;
+                        //currentState = aState.Idle;
                     }
                 }
 
@@ -98,21 +90,23 @@ public class PlayerManager : MonoBehaviour
         PlayAnim(AllAnimations.Walk);
     }
 
-    public void Wave()
+    public void Wave(float time)
     {
+        counter = time;
+
         RB.velocity = Vector3.zero;
         currentState = aState.Wave;
         PlayAnim(AllAnimations.Wave);
-        counter = 3;
+
     }
 
     public void Idle()
     {
-        
+
         currentState = aState.Idle;
         RB.velocity = Vector3.zero;
         PlayAnim(AllAnimations.Idle);
-        counter = 3;
+
     }
 
     float wrapAngle(float angle)

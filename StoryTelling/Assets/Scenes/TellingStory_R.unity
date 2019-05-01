@@ -9252,6 +9252,7 @@ GameObject:
   - component: {fileID: 2145088492}
   - component: {fileID: 2146382798}
   - component: {fileID: 2147381518}
+  - component: {fileID: 2145185741}
   m_Layer: 0
   m_Name: Yarboa3
   m_TagString: Untagged
@@ -9259,6 +9260,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2145185741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145185740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41bcac3526fbe1f44a96cde059f76cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  WayPoints: []
+  Speed: 0
+  Debug: {fileID: 0}
 --- !u!1 &2145185742
 GameObject:
   m_ObjectHideFlags: 0
