@@ -18,6 +18,7 @@ public class HiddenColors : MonoBehaviour
     }
     void OnMouseDown()
     {
+        print("aaaa");
         color.SetActive(true);
     }
 }

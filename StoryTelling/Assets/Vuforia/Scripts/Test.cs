@@ -19,8 +19,6 @@ public class Test : DefaultTrackableEventHandler
     public string Box;
 
     public GameObject Rim;
-    public GameObject Rim2;
-    public GameObject Rim3;
 
     ParticleSystem effects;
     // Update is called once per frame
@@ -79,15 +77,11 @@ public class Test : DefaultTrackableEventHandler
     private void OnMouseEnter()
     {
         Rim.SetActive(true);
-        Rim3.SetActive(true);
-        Rim2.SetActive(true);
     }
 
     private void OnMouseExit()
     {
         Rim.SetActive(false);
-        Rim2.SetActive(false);
-        Rim3.SetActive(false);
     }
 
 
