@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class AnimationFirst : PlayerManager
 {
-    // Start is called before the first frame update
+    Rigidbody rigidbody1;​
+    bool jump = true;​
+    float timer = 0;​
+    public GameObject effect1jump;​
+    bool effect = true;​
     void Start()
     {
         Init();
