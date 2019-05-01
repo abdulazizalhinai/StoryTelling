@@ -29,6 +29,7 @@ public class DefaultTrackableEventHandlerfirst : MonoBehaviour, ITrackableEventH
 
     protected virtual void Start()
     {
+        PlayerPrefs.SetInt("effect", 0);
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
             mTrackableBehaviour.RegisterTrackableEventHandler(this);
@@ -83,7 +84,7 @@ public class DefaultTrackableEventHandlerfirst : MonoBehaviour, ITrackableEventH
 
     protected virtual void OnTrackingFound()
     {
-        
+        PlayerPrefs.SetInt("effect", 1);
         //var rendererComponents = GetComponentsInChildren<Renderer>(true);
         //var colliderComponents = GetComponentsInChildren<Collider>(true);
         //var canvasComponents = GetComponentsInChildren<Canvas>(true);
@@ -126,7 +127,7 @@ public class DefaultTrackableEventHandlerfirst : MonoBehaviour, ITrackableEventH
 
     protected virtual void OnTrackingLost()
     {
-
+        PlayerPrefs.SetInt("effect", 0);
         //var rendererComponents = GetComponentsInChildren<Renderer>(true);
         //var colliderComponents = GetComponentsInChildren<Collider>(true);
         //var canvasComponents = GetComponentsInChildren<Canvas>(true);

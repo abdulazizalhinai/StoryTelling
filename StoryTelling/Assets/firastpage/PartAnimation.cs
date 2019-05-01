@@ -14,6 +14,8 @@ public enum AllAnimations
 public class PartAnimation : MonoBehaviour
 {
     internal AllAnimations CurrentAnimation;
+
+    public float Speed = 1;
     // Start is called before the first frame update
     void Start()
     {
