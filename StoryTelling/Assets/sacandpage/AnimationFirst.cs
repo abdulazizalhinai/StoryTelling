@@ -5,14 +5,6 @@ using UnityEngine;
 public class AnimationFirst : PlayerManager
 {
 
-    Rigidbody rigidbody1;​
-    bool jump = true;​
-    float timer = 0;​
-    public GameObject effect1jump;​
-    bool effect = true;​
-    void Start()
-
-    
     Rigidbody rigidbody1;
     bool jump = true;
     float timer = 0;
@@ -21,7 +13,6 @@ public class AnimationFirst : PlayerManager
     //Start is called before the first frame update
 
     protected override void Start()
-
     {
         //Instantiate(effect1jump, effect1jumplocataion.transform.position, effect1jumplocataion.transform.rotation);
         Init();

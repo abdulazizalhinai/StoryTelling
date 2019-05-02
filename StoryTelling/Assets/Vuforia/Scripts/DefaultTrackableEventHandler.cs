@@ -104,7 +104,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         gameObject.SetActive(true);
         foreach (Transform item in transform)
         {
-            print("aaaa");
+           // print("aaaa");
             item.gameObject.SetActive(true);
         }
         PlayerPrefs.SetInt("active", 1);

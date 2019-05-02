@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: 5d402b5031967ae419ac99d82e02500d
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: left ear
+    100004: left eye
+    100006: left eyebrow
+    100008: left hand
+    100010: legs
+    100012: right ear
+    100014: right eye
+    100016: right eyebrow
+    100018: right hand
+    100020: tail
+    100022: Yarboa3
+    400000: //RootNode
+    400002: left ear
+    400004: left eye
+    400006: left eyebrow
+    400008: left hand
+    400010: legs
+    400012: right ear
+    400014: right eye
+    400016: right eyebrow
+    400018: right hand
+    400020: tail
+    400022: Yarboa3
+    2100000: No Name
+    2300000: left ear
+    2300002: left eye
+    2300004: left eyebrow
+    2300006: left hand
+    2300008: legs
+    2300010: right ear
+    2300012: right eye
+    2300014: right eyebrow
+    2300016: right hand
+    2300018: tail
+    2300020: Yarboa3
+    3300000: left ear
+    3300002: left eye
+    3300004: left eyebrow
+    3300006: left hand
+    3300008: legs
+    3300010: right ear
+    3300012: right eye
+    3300014: right eyebrow
+    3300016: right hand
+    3300018: tail
+    3300020: Yarboa3
+    4300000: Yarboa3
+    4300002: left hand
+    4300004: right hand
+    4300006: legs
+    4300008: left ear
+    4300010: right ear
+    4300012: right eye
+    4300014: left eye
+    4300016: tail
+    4300018: left eyebrow
+    4300020: right eyebrow
+    9500000: //RootNode
+    11100000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton:
+    - name: animation yarboo3(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Yarboa3
+      parentName: animation yarboo3(Clone)
+      position: {x: 0.03831106, y: 0, z: 0.36536115}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: left hand
+      parentName: animation yarboo3(Clone)
+      position: {x: -0.1228839, y: 0.23491491, z: 0.021415176}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: right hand
+      parentName: animation yarboo3(Clone)
+      position: {x: 0.122801244, y: 0.23094894, z: 0.021415176}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: legs
+      parentName: animation yarboo3(Clone)
+      position: {x: 0.0013900732, y: 0.08672623, z: 0.012504768}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: left ear
+      parentName: animation yarboo3(Clone)
+      position: {x: -0.05843788, y: 0.58288616, z: 0.002404518}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: right ear
+      parentName: animation yarboo3(Clone)
+      position: {x: 0.04268607, y: 0.57865036, z: 0.014029159}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: right eye
+      parentName: animation yarboo3(Clone)
+      position: {x: 0.053510554, y: 0.44161552, z: 0.15414715}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: left eye
+      parentName: animation yarboo3(Clone)
+      position: {x: -0.05428294, y: 0.44161552, z: 0.15328866}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: tail
+      parentName: animation yarboo3(Clone)
+      position: {x: 0.030104198, y: 0.10768935, z: -0.046560705}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: left eyebrow
+      parentName: animation yarboo3(Clone)
+      position: {x: -0.06076193, y: 0.5069285, z: 0.14392819}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: right eyebrow
+      parentName: animation yarboo3(Clone)
+      position: {x: 0.05927056, y: 0.50692844, z: 0.14451267}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
