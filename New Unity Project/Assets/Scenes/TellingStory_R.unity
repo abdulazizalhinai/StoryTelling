@@ -6503,6 +6503,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: brush 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6198886036087945719, guid: b22b448eaf8fb7744b860d421691fc7c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6832561137667420409, guid: b22b448eaf8fb7744b860d421691fc7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6611,6 +6616,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: low poly bus 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646706287103769319, guid: 8e16b646037d7e34a893def0184c52c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7073094091457205841, guid: 8e16b646037d7e34a893def0184c52c2,
         type: 3}
