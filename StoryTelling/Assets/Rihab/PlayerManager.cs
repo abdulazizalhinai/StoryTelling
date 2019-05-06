@@ -10,6 +10,9 @@ public enum aState
     Idle,
     walking,
     Wave,
+    stands,
+    yas,
+    no,
 }
 
 public class PlayerManager : MonoBehaviour
@@ -108,7 +111,14 @@ public class PlayerManager : MonoBehaviour
         PlayAnim(AllAnimations.Idle);
 
     }
+    public void yas()
+    {
 
+        currentState = aState.Idle;
+        RB.velocity = Vector3.zero;
+        PlayAnim(AllAnimations.Idle);
+
+    }
     float wrapAngle(float angle)
     {
         if (angle > 180)

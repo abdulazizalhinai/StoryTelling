@@ -9,7 +9,6 @@ Confidential and Proprietary - Protected under copyright and other laws.
 using UnityEngine;
 using Vuforia;
 using UnityEngine.SceneManagement;
-
 /// <summary>
 /// A custom handler that implements the ITrackableEventHandler interface.
 ///
@@ -18,7 +17,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class DefaultTrackableEventHandlerfirst : MonoBehaviour, ITrackableEventHandler
 {
-   public GameObject cube;
+    public GameObject cube;
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;

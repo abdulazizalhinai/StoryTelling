@@ -59,4 +59,8 @@ public class PartAnimation : MonoBehaviour
     {
 
     }
+    public virtual void yes()
+    {
+
+    }
 }

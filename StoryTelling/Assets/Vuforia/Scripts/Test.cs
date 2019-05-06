@@ -15,7 +15,7 @@ public class Test : DefaultTrackableEventHandler
     int red = 0, green = 0;
     Vector3 OrginalScale;
     bool done = false;
-    
+
     public string Box;
 
     public GameObject Rim;
@@ -24,7 +24,7 @@ public class Test : DefaultTrackableEventHandler
     // Update is called once per frame
     protected override void Start()
     {
-        
+
         base.Start();
         PlayerPrefs.SetInt("red", 0);
         PlayerPrefs.SetInt("green", 0);
@@ -59,7 +59,7 @@ public class Test : DefaultTrackableEventHandler
     private Vector3 GetMouseAsWorldPoint()
 
     {
-        
+
         // Pixel coordinates of mouse (x,y)
         Vector3 mousePoint = Input.mousePosition;
 
@@ -101,14 +101,14 @@ public class Test : DefaultTrackableEventHandler
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Box == other.tag )
+        if (Box == other.tag)
         {
 
             done = true;
             print("ok");
             if (Box == "RedBox")
             {
-                
+
                 //Destroy(gameObject);
                 PlayerPrefs.SetInt("red", PlayerPrefs.GetInt("red") + 1);
 
@@ -138,7 +138,7 @@ public class Test : DefaultTrackableEventHandler
 
             //wrong answer
         }
-        
+
     }
 
 }

@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class AnimationFirst : PlayerManager
 {
-
+    
     Rigidbody rigidbody1;
     bool jump = true;
     float timer = 0;
     public GameObject effect1jump;
     bool effect = true;
-    //Start is called before the first frame update
-
     protected override void Start()
     {
-        //Instantiate(effect1jump, effect1jumplocataion.transform.position, effect1jumplocataion.transform.rotation);
+       
         Init();
         //Wave();
     }
@@ -44,7 +42,7 @@ public class AnimationFirst : PlayerManager
 
             timer += Time.deltaTime * 2;
             transform.position += Vector3.up * Time.deltaTime * 7;
-            transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one * 0.5f, timer);
+            transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one * 0.3f, timer);
 
 
             if (timer > 1)

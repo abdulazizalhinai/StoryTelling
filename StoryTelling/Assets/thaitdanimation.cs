@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationSecond : PlayerManager
+public class thaitdanimation : PlayerManager
 {
-   
-    
     Rigidbody rigidbody1;
     bool jump = true;
     float timer = 0;
@@ -15,13 +13,15 @@ public class AnimationSecond : PlayerManager
     {
 
         Init();
-        Walk();
-
+        Idle();
+        //Wave();
     }
-    public override void FinishedWalking()
+    public override void FinishedWave()
+
     {
         Wave(Mathf.Infinity);
     }
+    
     protected override void Update()
     {
         if (effect == true)
@@ -57,3 +57,4 @@ public class AnimationSecond : PlayerManager
     }
 
 }
+
