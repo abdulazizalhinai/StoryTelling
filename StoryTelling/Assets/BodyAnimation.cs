@@ -15,8 +15,8 @@ public class BodyAnimation : PartAnimation
     {
         transform.localPosition = originalPos + new Vector3(0, Mathf.Cos(Time.time * 2) * 0.02f, 0);
     }
-    public override void yes()
-    {
-        transform.localEulerAngles = new Vector3(-90, 0, -90 + Mathf.Cos(Time.time * 2));
-    }
+    //public override void yes()
+    //{
+    //    transform.localEulerAngles = new Vector3(-90, 0, -90 + Mathf.Cos(Time.time * 2));
+    //}
 }

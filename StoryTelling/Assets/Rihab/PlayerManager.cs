@@ -111,14 +111,14 @@ public class PlayerManager : MonoBehaviour
         PlayAnim(AllAnimations.Idle);
 
     }
-    public void yas()
-    {
+    //public void yas()
+    //{
 
-        currentState = aState.Idle;
-        RB.velocity = Vector3.zero;
-        PlayAnim(AllAnimations.Idle);
+    //    currentState = aState.Idle;
+    //    RB.velocity = Vector3.zero;
+    //    PlayAnim(AllAnimations.Idle);
 
-    }
+    //}
     float wrapAngle(float angle)
     {
         if (angle > 180)
