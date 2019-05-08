@@ -18,6 +18,7 @@ using UnityEngine.SceneManagement;
 public class DefaultTrackableEventHandlerfirst : MonoBehaviour, ITrackableEventHandler
 {
     public GameObject cube;
+    
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
@@ -41,7 +42,7 @@ public class DefaultTrackableEventHandlerfirst : MonoBehaviour, ITrackableEventH
         if (mTrackableBehaviour)
             mTrackableBehaviour.UnregisterTrackableEventHandler(this);
     }
-
+   
     #endregion // UNITY_MONOBEHAVIOUR_METHODS
 
     #region PUBLIC_METHODS
@@ -106,8 +107,9 @@ public class DefaultTrackableEventHandlerfirst : MonoBehaviour, ITrackableEventH
         {
             item.gameObject.SetActive(true);
             cube.SetActive(false);
+            
         }
-
+        
         //var rendererComponents = GetComponentsInChildren<Renderer>(true);
         //var colliderComponents = GetComponentsInChildren<Collider>(true);
         //var canvasComponents = GetComponentsInChildren<Canvas>(true);

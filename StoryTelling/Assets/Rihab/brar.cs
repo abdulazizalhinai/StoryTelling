@@ -2,22 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rotation : MonoBehaviour
+public class brar : MonoBehaviour
 {
     bool jump = true;
     float timer = 0;
-    // Start is called before the first frame update
+   
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-
-        //transform.Rotate(new Vector3(0,0,0.5f));
-
-
         if (jump == true)
         {
 

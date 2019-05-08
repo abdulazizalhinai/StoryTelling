@@ -53,24 +53,24 @@ public class PlayerManager : MonoBehaviour
 
                 break;
             case aState.walking:
-                Vector3 wayPointDirection = (WayPoints[index].localPosition - transform.localPosition).normalized;
-                float angle = Mathf.Atan2(wayPointDirection.x, wayPointDirection.z) * Mathf.Rad2Deg;
-                transform.Rotate(0, Mathf.Clamp(wrapAngle(angle - transform.localEulerAngles.y), Time.deltaTime * -120, Time.deltaTime * 120), 0, Space.Self);
+                //Vector3 wayPointDirection = (WayPoints[index].localPosition - transform.localPosition).normalized;
+                //float angle = Mathf.Atan2(wayPointDirection.x, wayPointDirection.z) * Mathf.Rad2Deg;
+                //transform.Rotate(0, Mathf.Clamp(wrapAngle(angle - transform.localEulerAngles.y), Time.deltaTime * -120, Time.deltaTime * 120), 0, Space.Self);
 
-                RB.velocity = Speed * transform.forward;
+                //RB.velocity = Speed * transform.forward;
 
-                if (Vector3.Distance(transform.position, WayPoints[index].position) < 1f)
-                {
-                    print(index);
-                    index++;
+                //if (Vector3.Distance(transform.position, WayPoints[index].position) < 1f)
+                //{
+                //    print(index);
+                //    index++;
 
-                    if (WayPoints.Length == index)
-                    {
-                        index = 0;
-                        walkFinished.Invoke();
-                        //currentState = aState.Idle;
-                    }
-                }
+                //    if (WayPoints.Length == index)
+                //    {
+                //        index = 0;
+                //        walkFinished.Invoke();
+                //        //currentState = aState.Idle;
+                //    }
+                //}
 
                 break;
             case aState.Wave:
