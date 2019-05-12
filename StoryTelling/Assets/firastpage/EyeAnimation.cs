@@ -17,7 +17,7 @@ public class EyeAnimation : MonoBehaviour
         if (blink)
         {
             timer += Time.deltaTime * Mathf.PI * 2;
-            print(timer);
+            //print(timer);
             transform.localScale = new Vector3(1, 1, Mathf.Abs(Mathf.Cos(timer)));
 
             if (timer > Mathf.PI)

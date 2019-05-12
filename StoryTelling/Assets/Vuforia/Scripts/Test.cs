@@ -31,7 +31,7 @@ public class Test : DefaultTrackableEventHandler
         OrginalPostion = transform.localPosition;
         OrginalScale = transform.localScale;
         //  cube = GetComponent<Transform>();
-        print(OrginalPostion);
+        //print(OrginalPostion);
         //rb = GetComponent<Rigidbody>();
     }
     private void OnMouseUp()
@@ -111,15 +111,15 @@ public class Test : DefaultTrackableEventHandler
 
                 //Destroy(gameObject);
                 PlayerPrefs.SetInt("red", PlayerPrefs.GetInt("red") + 1);
-
+                print(PlayerPrefs.GetInt("red"));
             }
             else //if (Box == "GreenBox")
             {
                 // Destroy(gameObject);
                 PlayerPrefs.SetInt("green", PlayerPrefs.GetInt("green") + 1);
-
+                print(PlayerPrefs.GetInt("green"));
             }
-            if (PlayerPrefs.GetInt("red") == 3 && PlayerPrefs.GetInt("green") == 3)
+            if (PlayerPrefs.GetInt("red") >= 3 && PlayerPrefs.GetInt("green") >= 3)
             {
 
                 print("Welldone!");

@@ -40,9 +40,9 @@ public class AnimationFirst : PlayerManager
         if (jump == true)
         {
 
-            timer += Time.deltaTime * 2;
-            transform.position += Vector3.up * Time.deltaTime * 7;
-            transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one * 0.2f, timer);
+            timer += Time.deltaTime * 6;
+            transform.position += Vector3.up * Time.deltaTime * 8;
+            transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one * 0.4f, timer);
 
 
             if (timer > 1)
