@@ -9,17 +9,24 @@ public class thaitdanimation : PlayerManager
     float timer = 0;
     public GameObject effect1jump;
     bool effect = true;
+    public AudioClip FirstPage;
+    public AudioClip FirstGame;
     protected override void Start()
+      
+
     {
 
         Init();
-        Idle();
-        //Wave();
+        //Idle();
+       Wave(8.5f);
+        SoundManager.instance.PlaySingle(FirstPage);
     }
     public override void FinishedWave()
 
     {
-        Wave(Mathf.Infinity);
+        //Wave(Mathf.Infinity);
+        Idle();
+        SoundManager.instance.PlaySingle(FirstGame);
     }
     
     protected override void Update()

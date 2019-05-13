@@ -14,6 +14,6 @@ public class wheel : MonoBehaviour
     void Update()
     {
         //transform.localRotation = new Vector3(0,1,0);
-        transform.Rotate(0, 0, 50 * Time.deltaTime);
+        transform.Rotate(0, 50 * Time.deltaTime,0 );
     }
 }

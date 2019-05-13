@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class Test : DefaultTrackableEventHandler
 {
     bool move = false;
+    int index = 1;
     //public Transform cube;
     //public Rigidbody rb;
     //Transform mytransform;
@@ -36,12 +37,14 @@ public class Test : DefaultTrackableEventHandler
     }
     private void OnMouseUp()
     {
+        Rim.SetActive(false);
         transform.localScale = OrginalScale;
     }
     void OnMouseDown()
 
     {
-        transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
+        Rim.SetActive(true);
+        //transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
         mZCoord = Camera.main.WorldToScreenPoint(
             gameObject.transform.position).z;
 
@@ -88,6 +91,7 @@ public class Test : DefaultTrackableEventHandler
     void OnMouseDrag()
 
     {
+        Rim.SetActive(true);
         RaycastHit hit;
 
         Physics.Raycast(Camera.main.transform.position, (GetMouseAsWorldPoint() - Camera.main.transform.position).normalized, out hit, 100, 1 << 9);
@@ -108,14 +112,26 @@ public class Test : DefaultTrackableEventHandler
             print("ok");
             if (Box == "RedBox")
             {
-
-                //Destroy(gameObject);
                 PlayerPrefs.SetInt("red", PlayerPrefs.GetInt("red") + 1);
+                //Destroy(gameObject);
+
+                GetComponent<BoxCollider>().enabled = false;
+                //transform.position = new Vector3(Random.Range(0.145f,-0.145f),Random.Range( 0.12f,-0.12f), 0.325f);
+                //transform.position = new Vector3(0.145f, 0.12f, 0.325f);
+
+                transform.localScale += new Vector3(0.08f, 0.08f, 0.08f);
                 print(PlayerPrefs.GetInt("red"));
+                GetComponent<Rigidbody>().useGravity = false;
+                GetComponent<Rigidbody>().isKinematic = true;
+                GetComponent<BoxCollider>().enabled = false;
             }
             else //if (Box == "GreenBox")
             {
-                // Destroy(gameObject);
+                //// Destroy(gameObject);
+                //transform.position = new Vector3(transform.position.x, transform.position.y + 0.8f, transform.position.z);
+                //GetComponent<Rigidbody>().useGravity = false;
+                //GetComponent<Rigidbody>().isKinematic = true;
+               
                 PlayerPrefs.SetInt("green", PlayerPrefs.GetInt("green") + 1);
                 print(PlayerPrefs.GetInt("green"));
             }
@@ -133,6 +149,7 @@ public class Test : DefaultTrackableEventHandler
         }
         else
         {
+
             print("no");
             transform.localPosition = OrginalPostion;
 
