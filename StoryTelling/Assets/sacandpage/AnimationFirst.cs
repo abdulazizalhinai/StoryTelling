@@ -7,13 +7,18 @@ public class AnimationFirst : PlayerManager
     
     Rigidbody rigidbody1;
     bool jump = true;
-    float timer = 0;
+    float timer = 0, timer2 = 0;
     public GameObject effect1jump;
     bool effect = true;
+
+    public AudioClip welcome;
+
     protected override void Start()
     {
        
         Init();
+         
+        SoundManager.instance.PlaySingle(welcome);
         //Wave();
     }
     public override void FinishedWave()
