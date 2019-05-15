@@ -3941,8 +3941,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isbear: 0
-  greenbox: {fileID: 1913479608}
-  redbox: {fileID: 752452637}
+  greenbox: {fileID: 752452637}
+  redbox: {fileID: 1913479608}
   TryAgin: {fileID: 8300000, guid: 63fba07cef28d2747a69b84f7a0cb9f7, type: 3}
   EXSELLENT: {fileID: 8300000, guid: 7a45edcbf2837df48a1e08df9794c5a3, type: 3}
   YOUAREWEDUFULL: {fileID: 8300000, guid: 7a45edcbf2837df48a1e08df9794c5a3, type: 3}
@@ -8363,6 +8363,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1341683821}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1922360076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 475768170056322108, guid: 8f3693e7e046564419f60daa302f6a73,
+    type: 3}
+  m_PrefabInstance: {fileID: 1341683821}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1922360079
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922360076}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1922693765
 PrefabInstance:
   m_ObjectHideFlags: 0
