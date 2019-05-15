@@ -21,7 +21,7 @@ public class Image4 : MonoBehaviour
     void Update()
     {
         timer += 0.5f;
-        print(timer);
+        //print(timer);
         if (timer == 200)
         {
             SoundManager.instance.PlaySingle(therdGame);

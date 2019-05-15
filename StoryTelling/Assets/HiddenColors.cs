@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HiddenColors : MonoBehaviour
 {
+    public AudioClip Color;
     public GameObject color;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class HiddenColors : MonoBehaviour
     }
     void OnMouseDown()
     {
-        print("aaaa");
+        SoundManager.instance.PlaySingle(Color); 
         color.SetActive(true);
     }
 }

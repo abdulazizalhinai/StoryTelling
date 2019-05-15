@@ -108,7 +108,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             item.gameObject.SetActive(true);
         }
         PlayerPrefs.SetInt("active", 1);
-        SceneManager.LoadScene("game");
+        
 
         //var rendererComponents = GetComponentsInChildren<Renderer>(true);
         //var colliderComponents = GetComponentsInChildren<Collider>(true);
