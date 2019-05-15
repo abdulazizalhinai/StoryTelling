@@ -8,7 +8,7 @@ Confidential and Proprietary - Protected under copyright and other laws.
 
 using UnityEngine;
 using Vuforia;
-
+using UnityEngine.SceneManagement;
 /// <summary>
 /// A custom handler that implements the ITrackableEventHandler interface.
 ///
@@ -17,6 +17,7 @@ using Vuforia;
 /// </summary>
 public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 {
+    GameObject GameObject;
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
@@ -29,6 +30,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void Start()
     {
+        PlayerPrefs.SetInt("active", 0);
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
             mTrackableBehaviour.RegisterTrackableEventHandler(this);
@@ -80,10 +82,34 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     #endregion // PUBLIC_METHODS
 
     #region PROTECTED_METHODS
-
+   
     protected virtual void OnTrackingFound()
     {
-<<<<<<< HEAD
+
+        //var rendererComponents = GetComponentsInChildren<Renderer>(true);
+        //var colliderComponents = GetComponentsInChildren<Collider>(true);
+        //var canvasComponents = GetComponentsInChildren<Canvas>(true);
+
+        //// Enable rendering:
+        //foreach (var component in rendererComponents)
+        //    component.enabled = true;
+
+        //// Enable colliders:
+        //foreach (var component in colliderComponents)
+        //    component.enabled = true;
+
+        //// Enable canvas':
+        //foreach (var component in canvasComponents)
+        //    component.enabled = true;
+        gameObject.SetActive(true);
+        foreach (Transform item in transform)
+        {
+            print("aaaa");
+            item.gameObject.SetActive(true);
+        }
+        PlayerPrefs.SetInt("active", 1);
+        SceneManager.LoadScene("game");
+
         //var rendererComponents = GetComponentsInChildren<Renderer>(true);
         //var colliderComponents = GetComponentsInChildren<Collider>(true);
         //var canvasComponents = GetComponentsInChildren<Canvas>(true);
@@ -100,33 +126,12 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         //foreach (var component in canvasComponents)
         //    component.enabled = true;
 
-        foreach (Transform item in transform)
-        {
-            item.gameObject.SetActive(true);
-        }
-=======
-        var rendererComponents = GetComponentsInChildren<Renderer>(true);
-        var colliderComponents = GetComponentsInChildren<Collider>(true);
-        var canvasComponents = GetComponentsInChildren<Canvas>(true);
-
-        // Enable rendering:
-        foreach (var component in rendererComponents)
-            component.enabled = true;
-
-        // Enable colliders:
-        foreach (var component in colliderComponents)
-            component.enabled = true;
-
-        // Enable canvas':
-        foreach (var component in canvasComponents)
-            component.enabled = true;
->>>>>>> sawsan
     }
 
 
     protected virtual void OnTrackingLost()
     {
-<<<<<<< HEAD
+
         //var rendererComponents = GetComponentsInChildren<Renderer>(true);
         //var colliderComponents = GetComponentsInChildren<Collider>(true);
         //var canvasComponents = GetComponentsInChildren<Canvas>(true);
@@ -147,23 +152,23 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         {
             item.gameObject.SetActive(false);
         }
-=======
-        var rendererComponents = GetComponentsInChildren<Renderer>(true);
-        var colliderComponents = GetComponentsInChildren<Collider>(true);
-        var canvasComponents = GetComponentsInChildren<Canvas>(true);
 
-        // Disable rendering:
-        foreach (var component in rendererComponents)
-            component.enabled = false;
+        //var rendererComponents = GetComponentsInChildren<Renderer>(true);
+        //var colliderComponents = GetComponentsInChildren<Collider>(true);
+        //var canvasComponents = GetComponentsInChildren<Canvas>(true);
 
-        // Disable colliders:
-        foreach (var component in colliderComponents)
-            component.enabled = false;
+        //// Disable rendering:
+        //foreach (var component in rendererComponents)
+        //    component.enabled = false;
 
-        // Disable canvas':
-        foreach (var component in canvasComponents)
-            component.enabled = false;
->>>>>>> sawsan
+        //// Disable colliders:
+        //foreach (var component in colliderComponents)
+        //    component.enabled = false;
+
+        //// Disable canvas':
+        //foreach (var component in canvasComponents)
+        //    component.enabled = false;
+
     }
 
     #endregion // PROTECTED_METHODS

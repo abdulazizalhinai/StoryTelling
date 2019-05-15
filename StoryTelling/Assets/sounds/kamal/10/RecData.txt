@@ -1,0 +1,3 @@
+Sample Rate : 44100 Hz
+Rec Format : WAV 16-bit
+Input Select : Internal Mic
