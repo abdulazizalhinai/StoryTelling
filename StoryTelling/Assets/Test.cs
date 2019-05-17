@@ -18,17 +18,18 @@ public class Test : DefaultTrackableEventHandler
     public AudioClip TryAgin;
     public AudioClip EXSELLENT;
     public AudioClip YOUAREWEDUFULL;
-
+    private LineRenderer laserLine;
     public string Box;
-
-    public GameObject Rim;
+   //private Camera fpsCam;
+    public Transform Rim;
+    bool laser = false;
 
     ParticleSystem effects;
     // Update is called once per frame
     protected override void Start()
     {
-        //greenbox = GetComponent<Transform>();
-        //redbox = GetComponent<Transform>();
+        //fpsCam = GetComponentInParent<Camera>();
+        laserLine = GetComponent<LineRenderer>();
         redboxorginal = redbox.transform.localScale;
         greenboxorginal = greenbox.transform.localScale;
         base.Start();
@@ -36,23 +37,60 @@ public class Test : DefaultTrackableEventHandler
         PlayerPrefs.SetInt("green", 0);
         OrginalPostion = transform.localPosition;
         OrginalScale = transform.localScale;
-        //  cube = GetComponent<Transform>();
-        //print(OrginalPostion);
-        //rb = GetComponent<Rigidbody>();
+       
     }
     private void OnMouseUp()
     {
+        laserLine.enabled = false;
+        if (Vector3.Distance(transform.position,Rim.position)<10)
+        {
+            transform.position = Rim.position;
+        }
+        laser = false;
+      
         greenbox.transform.localScale = greenboxorginal;
         redbox.transform.localScale = redboxorginal;
-        Rim.SetActive(false);
+        //Rim.SetActive(false);
         transform.localScale = OrginalScale;
+    }
+    private void Update()
+    {
+        if (laser)
+        {
+            laserLine.enabled = true;
+            //Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
+
+            // Declare a raycast hit to store information about what our raycast has hit
+            RaycastHit hit;
+
+            // Set the start position for our visual effect for our laser to the position of gunEnd
+            laserLine.SetPosition(0, transform.position);
+
+
+
+            // Check if our raycast has hit anything
+            if (Physics.Raycast(Camera.main.transform.position, (GetMouseAsWorldPoint() - Camera.main.transform.position).normalized, out hit, 100, 1 << 9))
+            {
+               // print("aaa");
+                // Set the end position for our laser line 
+                laserLine.SetPosition(1, hit.point);
+            }
+        }
     }
     void OnMouseDown()
     {
          
         if (!done)
         {
-            Rim.SetActive(true);
+
+
+
+            laser = true;
+
+
+
+
+            //Rim.SetActive(true);
             if (!isbear)
                 transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
             mZCoord = Camera.main.WorldToScreenPoint(
@@ -107,7 +145,8 @@ public class Test : DefaultTrackableEventHandler
     {
         if (!done)
         {
-            Rim.SetActive(true);
+            
+           // Rim.SetActive(true);
             RaycastHit hit;
 
             Physics.Raycast(Camera.main.transform.position, (GetMouseAsWorldPoint() - Camera.main.transform.position).normalized, out hit, 100, 1 << 9);
